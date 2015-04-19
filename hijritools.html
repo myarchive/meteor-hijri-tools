@@ -1,0 +1,35 @@
+<template name="g2h">
+	<center>
+		<table style="background-color:#add8e6; color:#444;">
+            <tr>
+				<th colspan="2" width="500px" style="background-color:#7997a1; font-weight:900; text-align:center; vertical-align:middle; height:40px;">Gregorian → Hijri</th>
+			</tr>
+            <tr style="vertical-align:middle; height:120px;">
+				<td width="250px" style="text-align:center;">
+					<input type="text" name="g2h-input" id="g2h-input" placeholder="Enter Gregorian Date, Month or Year">
+				</td>
+				<td width="250px" style="text-align:center;">
+					<span id="g2h-result">...</span>
+				</td>
+			</tr>
+		</table>
+	</center>
+</template>
+
+<template name="h2g">
+	<center>
+		<table style="background-color:#adebad; color:#444;">
+			<tr>
+				<th colspan="2" width="500px" style="background-color:#28a428; font-weight:900; text-align:center; vertical-align:middle; height:40px;">Hijri → Gregorian</th>
+			</tr>
+			<tr style="vertical-align:middle; height:120px;">
+				<td width="250px" style="text-align:center;">
+					<input type="text" name="h2g-input" id="h2g-input" placeholder="Enter Hijri Date"><br><small>Format YYYY-M-D such as "1435-9-20"</small>
+				</td>
+				<td width="250px" style="text-align:center;">
+					<span id="h2g-result">...</span>
+				</td>
+			</tr>
+		</table>
+	</center>	
+</template>
