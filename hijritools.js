@@ -148,9 +148,9 @@ Template.h2g.onRendered(function () {
         var hmn = new Array("Muharram","Safar","Rabiul Awwal","Rabiul Akhir","Jumadal Ula","Jumadal Akhir","Rajab","Shaban","Ramadan","Shawwal","Dhul Qida","Dhul Hijja");
 
         var i = $('#h2g-input').val();
-        var i = i.split(/(-?\d+)[-,\s](\d+)[-,\s](\d+)/);
+        var i = i.split(" ").join("-").split(".").join("-").split(",").join("").split("-");
 
-        if (i[1] === undefined) {
+		if (i[1] === undefined) {
             if (isNaN(i) || i === "-" || i[0].length === 0) {
                 $('#h2g-result').html("...");
             }
@@ -161,6 +161,19 @@ Template.h2g.onRendered(function () {
                 $('#h2g-result').html(out);
             }            
         }
+		
+        else if (i[2] === undefined) {
+            if (i[1].length === 0) {
+                $('#h2g-result').html("...");
+            }
+            else {
+                var g1 = conv2grego(i[0]*1, i[1]*1, 1);
+                var g2 = conv2grego(i[0]*1, i[1]*1, 29);
+                var out = "Start: "+g1[0]+" - "+g1[1]+" - "+g1[2]+"<br>End: "+g2[0]+" - "+g2[1]+" - "+g2[2];
+                $('#h2g-result').html(out);
+            }            
+        }
+		
         else {
             var g = conv2grego(i[0]*1, i[1]*1, i[2]*1);
             var out = (isNaN(g[0])) ? "..." : g[0]+" - "+g[1]+" - "+g[2];
