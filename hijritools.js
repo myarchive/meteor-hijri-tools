@@ -181,3 +181,33 @@ Template.h2g.onRendered(function () {
         }
     });
 });
+
+this.qiblahDirection = function(lat,lng) {
+	// Kabah Coordinates 21.422524, 39.826182
+	var klat = 21.422524;
+	var klng = 39.826182;
+	
+	PI = Math.PI;
+	if (isNaN(lat-0.0) || isNaN(lng-0.0)) {
+		alert("Non-numeric entry/entries");
+		return "???";
+	}
+	if ((lat-0.0)>(90.0-0.0) || (lat-0.0)<(-90.0-0.0)) {
+		alert("Latitude must be between -90 and 90 degrees");
+		return "???";
+	}
+	if ((lng-0.0)>(180.0-0.0) || (lng-0.0)<(-180.0-0.0)) {
+		alert("Longitude must be between -180 and 180 degrees");
+		return "???";
+	}
+	// Kabah @ 21.422516, 39.826185
+	if (Math.abs(lat-klat)<Math.abs(0.0-0.01) && Math.abs(lng-klng)<Math.abs(0.0-0.01)) return "Any";
+	phiK = klat*PI/180.0;
+	lambdaK = klng*PI/180.0;
+	phi = lat*PI/180.0;
+	lambda = lng*PI/180.0;
+	psi = 180.0/PI*Math.atan2(Math.sin(lambdaK-lambda),Math.cos(phi)*Math.tan(phiK)-Math.sin(phi)*Math.cos(lambdaK-lambda));
+	d = (psi < 0) ? 360+psi : psi;
+	return d;
+	return Math.round(psi);	
+};

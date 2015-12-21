@@ -1,7 +1,7 @@
 Package.describe({
 	name: 'alisalaah:hijri-tools',
 	summary: 'Tools for converting Gregorian and Hijri dates plus template for public converter',
-	version: '1.0.1',
+	version: '1.1.0',
 	git: 'https://github.com/alisalaah/meteor-hijri-tools.git'
 });
 
